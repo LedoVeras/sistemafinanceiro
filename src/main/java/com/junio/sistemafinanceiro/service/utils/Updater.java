@@ -7,6 +7,7 @@ import static com.google.gson.internal.reflect.ReflectionHelper.isRecord;
 
 public class Updater {
 
+    //Método estatico para atualizar qualquer entidade a partir de uma classe record no requestBody
     public static <T> void update(T target, T source) {
         try {
             Method[] methods = source.getClass().getMethods();
@@ -19,7 +20,9 @@ public class Updater {
 
                         String fieldName = getFieldName(method.getName());
 
+                        //se tiver uma classe dentro do record, roda novamente o código atualizando a parte mais interior do código
                         if(isRecord(value.getClass())){
+
                             Method setter = target.getClass().getMethod("get" + fieldName);
 
                             var toUpdate = setter.invoke(target);
@@ -37,8 +40,7 @@ public class Updater {
                 }
             }
         } catch (Exception e) {
-            System.out.println("nao deu");
-            //e.printStackTrace();
+            e.printStackTrace();
         }
     }
 

@@ -6,6 +6,7 @@ import com.junio.sistemafinanceiro.entidades.lancamento.Lancamento;
 import com.junio.sistemafinanceiro.repositories.CategoriaRepository;
 import com.junio.sistemafinanceiro.repositories.LancamentoRepository;
 import com.junio.sistemafinanceiro.repositories.PessoaRepository;
+import com.junio.sistemafinanceiro.service.utils.Updater;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -51,30 +52,10 @@ public class LancamentoService {
     public Lancamento updateLancamento(Long id, DadosAtualizarLancamento dados) {
         Lancamento lancamento = findLancamentoById(id);
 
-        if (dados.descricao() != null) {
-            lancamento.setDescricao(dados.descricao());
-        }
-        if (dados.observacao() != null) {
-            lancamento.setObservacao(dados.observacao());
-        }
-        if (dados.valor() != null) {
-            lancamento.setValor(dados.valor());
-        }
-        if (dados.dataLancamento() != null) {
-            lancamento.setDataLancamento(dados.dataLancamento());
-        }
-        if (dados.dataVencimento() != null) {
-            lancamento.setDataVencimento(dados.dataVencimento());
-        }
-        if (dados.dataConclusao() != null) {
-            lancamento.setDataConclusao(dados.dataConclusao());
-        }
-        if (dados.categoria() != null) {
-            lancamento.setCategoria(dados.categoria());
-        }
+        Updater.update(lancamento, dados);
+
         if (dados.transacaoConcluida() != null) {
-            lancamento.setTransacaoConcluida(dados.transacaoConcluida());
-            lancamento.setDataConclusao(dados.transacaoConcluida() ? Instant.now() : null);
+            lancamento.setDataPagamento(dados.transacaoConcluida() ? Instant.now() : null);
         }
 
         return lancamentoRepository.save(lancamento);

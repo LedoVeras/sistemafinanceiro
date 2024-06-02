@@ -18,7 +18,6 @@ public record DadosCadastroLancamento(
         Long idPessoa,
         @NotNull
         Long idCategoria,
-        Integer diasParaOVencimento,
         Boolean transacaoConcluida
 ) {
 }

@@ -9,9 +9,7 @@ public record DadosAtualizarLancamento(
         String descricao,
         String observacao,
         Double valor,
-        Instant dataLancamento,
         Instant dataVencimento,
-        Instant dataConclusao,
         Categoria categoria,
         Boolean transacaoConcluida
 ) {

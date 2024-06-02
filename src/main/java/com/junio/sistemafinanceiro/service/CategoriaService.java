@@ -5,6 +5,7 @@ import com.junio.sistemafinanceiro.entidades.categoria.DadosCadastroCategoria;
 import com.junio.sistemafinanceiro.repositories.CategoriaRepository;
 import com.junio.sistemafinanceiro.entidades.categoria.DadosAtualizarCategoria;
 import com.junio.sistemafinanceiro.service.exceptions.CategoriaJaExistenteException;
+import com.junio.sistemafinanceiro.service.utils.Updater;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +43,9 @@ public class CategoriaService {
     // Update
     public Categoria updateCategoria(Long id, DadosAtualizarCategoria dados) {
         var categoria = findCategoriaById(id);
-        categoria.setNome(dados.nome());
+
+        Updater.update(categoria, dados);
+
         return categoriaRepository.save(categoria);
     }
 

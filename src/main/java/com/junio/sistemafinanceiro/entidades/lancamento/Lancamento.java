@@ -3,6 +3,7 @@ package com.junio.sistemafinanceiro.entidades.lancamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.junio.sistemafinanceiro.entidades.categoria.Categoria;
+import com.junio.sistemafinanceiro.entidades.entity.SFEntity;
 import com.junio.sistemafinanceiro.entidades.lancamento.enums.TipoLancamento;
 import com.junio.sistemafinanceiro.entidades.pessoa.Pessoa;
 import jakarta.persistence.*;
@@ -18,8 +19,8 @@ import java.time.ZoneId;
 @Table(name = "Lancamentos")
 @NoArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(of = "id")
-public class Lancamento {
+@EqualsAndHashCode(of = "id", callSuper = false)
+public class Lancamento extends SFEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,6 +66,5 @@ public class Lancamento {
         if(dados.transacaoConcluida() != null)
             this.dataPagamento = dados.transacaoConcluida() ? Instant.now() : null;
     }
-
 
 }

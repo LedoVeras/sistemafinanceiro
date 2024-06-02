@@ -1,6 +1,7 @@
 package com.junio.sistemafinanceiro.entidades.categoria;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.junio.sistemafinanceiro.entidades.entity.SFEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,8 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(of = "id")
-public class Categoria {
+@EqualsAndHashCode(of = "id", callSuper = false)
+public class Categoria extends SFEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

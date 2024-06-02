@@ -1,7 +1,5 @@
 package com.junio.sistemafinanceiro.entidades.endereco;
 
-import com.junio.sistemafinanceiro.entidades.entity.UpdateableEntity;
-import com.junio.sistemafinanceiro.service.utils.Updater;
 import jakarta.persistence.Embeddable;
 import lombok.*;
 

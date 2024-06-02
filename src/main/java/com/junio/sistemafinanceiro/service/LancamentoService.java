@@ -3,6 +3,7 @@ package com.junio.sistemafinanceiro.service;
 import com.junio.sistemafinanceiro.entidades.lancamento.DadosAtualizarLancamento;
 import com.junio.sistemafinanceiro.entidades.lancamento.DadosCadastroLancamento;
 import com.junio.sistemafinanceiro.entidades.lancamento.Lancamento;
+import com.junio.sistemafinanceiro.entidades.pessoa.Pessoa;
 import com.junio.sistemafinanceiro.repositories.CategoriaRepository;
 import com.junio.sistemafinanceiro.repositories.LancamentoRepository;
 import com.junio.sistemafinanceiro.repositories.PessoaRepository;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
+
+import static com.junio.sistemafinanceiro.service.Services.findObjectById;
+import static com.junio.sistemafinanceiro.service.Services.logicDelete;
 
 @Service
 @AllArgsConstructor
@@ -27,13 +31,8 @@ public class LancamentoService {
 
         var lancamento = new Lancamento(dados);
 
-        // Atribuindo a Pessoa
-        PessoaService ps = new PessoaService(pessoaRepository);
-        lancamento.setPessoa(ps.findPessoaById(dados.idPessoa()));
-
-        // Atribuindo a Categoria
-        CategoriaService cs = new CategoriaService(categoriaRepository);
-        lancamento.setCategoria(cs.findCategoriaById(dados.idCategoria()));
+        lancamento.setPessoa(findObjectById(pessoaRepository, dados.idPessoa()));
+        lancamento.setCategoria(findObjectById(categoriaRepository, dados.idCategoria()));
 
         return lancamentoRepository.save(lancamento);
     }
@@ -44,13 +43,12 @@ public class LancamentoService {
     }
 
     public Lancamento findLancamentoById(Long id) {
-        Optional<Lancamento> lancamento = lancamentoRepository.findAtivoById(id);
-        return lancamento.orElseThrow();
+        return findObjectById(lancamentoRepository, id);
     }
 
     // Update
     public Lancamento updateLancamento(Long id, DadosAtualizarLancamento dados) {
-        Lancamento lancamento = findLancamentoById(id);
+        Lancamento lancamento = findObjectById(lancamentoRepository, id);
 
         Updater.update(lancamento, dados);
 
@@ -63,8 +61,6 @@ public class LancamentoService {
 
     // Delete
     public void deleteLogicoLancamento(Long id) {
-        Lancamento lancamento = findLancamentoById(id);
-        lancamento.setAtivo(false);
-        lancamentoRepository.save(lancamento);
+        logicDelete(lancamentoRepository, id);
     }
 }

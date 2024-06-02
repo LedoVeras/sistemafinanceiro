@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.junio.sistemafinanceiro.service.Services.findObjectById;
+import static com.junio.sistemafinanceiro.service.Services.logicDelete;
+
 @Service
 @AllArgsConstructor
 public class CategoriaService {
@@ -35,14 +38,11 @@ public class CategoriaService {
         return categoriaRepository.findByAtivoTrue();
     }
 
-    public Categoria findCategoriaById(Long id) {
-        Optional<Categoria> categoria = categoriaRepository.findAtivoById(id);
-        return categoria.orElseThrow();
-    }
+    public Categoria findCategoriaById(Long id) {return findObjectById(categoriaRepository, id);}
 
     // Update
     public Categoria updateCategoria(Long id, DadosAtualizarCategoria dados) {
-        var categoria = findCategoriaById(id);
+        var categoria = findObjectById(categoriaRepository, id);
 
         Updater.update(categoria, dados);
 
@@ -51,8 +51,6 @@ public class CategoriaService {
 
     // Delete
     public void deleteLogicoCategoria(Long id) {
-        Categoria categoria = findCategoriaById(id);
-        categoria.setAtivo(false);
-        categoriaRepository.save(categoria);
+        logicDelete(categoriaRepository, id);
     }
 }

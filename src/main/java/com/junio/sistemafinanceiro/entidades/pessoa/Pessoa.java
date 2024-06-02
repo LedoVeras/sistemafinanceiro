@@ -2,6 +2,7 @@ package com.junio.sistemafinanceiro.entidades.pessoa;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.junio.sistemafinanceiro.entidades.endereco.Endereco;
+import com.junio.sistemafinanceiro.entidades.entity.SFEntity;
 import com.junio.sistemafinanceiro.entidades.lancamento.Lancamento;
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,8 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(of = "id")
-public class Pessoa {
+@EqualsAndHashCode(of = "id", callSuper = false)
+public class Pessoa extends SFEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

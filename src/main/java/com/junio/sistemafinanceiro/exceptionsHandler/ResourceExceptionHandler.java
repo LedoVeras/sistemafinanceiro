@@ -1,8 +1,8 @@
-package com.junio.sistemafinanceiro.controllers.exceptions;
+package com.junio.sistemafinanceiro.exceptionsHandler;
 
-import com.junio.sistemafinanceiro.service.exceptions.DatabaseException;
-import com.junio.sistemafinanceiro.service.exceptions.ResourceNotFoundException;
-import com.junio.sistemafinanceiro.service.exceptions.DadoInvalidoException;
+import com.junio.sistemafinanceiro.exceptionsHandler.exceptions.DatabaseException;
+import com.junio.sistemafinanceiro.exceptionsHandler.exceptions.ResourceNotFoundException;
+import com.junio.sistemafinanceiro.exceptionsHandler.exceptions.DadoInvalidoException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.UnexpectedTypeException;
 import org.springframework.dao.DataIntegrityViolationException;

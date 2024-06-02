@@ -1,7 +1,6 @@
 package com.junio.sistemafinanceiro.entidades.lancamento;
 
 import com.junio.sistemafinanceiro.entidades.categoria.Categoria;
-import com.junio.sistemafinanceiro.service.exceptions.DadoInvalidoException;
 
 import java.time.Instant;
 

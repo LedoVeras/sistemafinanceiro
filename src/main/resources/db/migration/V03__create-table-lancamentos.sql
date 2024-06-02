@@ -1,4 +1,4 @@
-CREATE TABLE Lançamentos
+CREATE TABLE Lancamentos
 (
     id                  BIGINT                      NOT NULL AUTO_INCREMENT,
     ativo               BOOLEAN                     NOT NULL DEFAULT TRUE,

@@ -1,4 +1,4 @@
-package com.junio.sistemafinanceiro.service.exceptions;
+package com.junio.sistemafinanceiro.exceptionsHandler.exceptions;
 
 public class DadoInvalidoException extends RuntimeException{
 

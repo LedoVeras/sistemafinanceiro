@@ -1,4 +1,4 @@
-package com.junio.sistemafinanceiro.service.utils;
+package com.junio.sistemafinanceiro.controllers.service.utils;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

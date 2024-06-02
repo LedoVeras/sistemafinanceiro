@@ -3,7 +3,7 @@ package com.junio.sistemafinanceiro.controllers;
 import com.junio.sistemafinanceiro.entidades.pessoa.DadosAtualizarPessoa;
 import com.junio.sistemafinanceiro.entidades.pessoa.DadosCadastroPessoa;
 import com.junio.sistemafinanceiro.entidades.pessoa.Pessoa;
-import com.junio.sistemafinanceiro.service.PessoaService;
+import com.junio.sistemafinanceiro.controllers.service.PessoaService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

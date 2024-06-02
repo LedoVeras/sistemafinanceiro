@@ -1,4 +1,4 @@
-package com.junio.sistemafinanceiro.controllers.exceptions;
+package com.junio.sistemafinanceiro.exceptionsHandler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

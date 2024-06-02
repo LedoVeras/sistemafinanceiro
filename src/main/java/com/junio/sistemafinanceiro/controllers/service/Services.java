@@ -1,4 +1,4 @@
-package com.junio.sistemafinanceiro.service;
+package com.junio.sistemafinanceiro.controllers.service;
 
 import com.junio.sistemafinanceiro.entidades.entity.SFEntity;
 import com.junio.sistemafinanceiro.repositories.EntityRepository;

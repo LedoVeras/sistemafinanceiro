@@ -2,7 +2,7 @@ package com.junio.sistemafinanceiro.controllers;
 
 import com.junio.sistemafinanceiro.entidades.categoria.DadosAtualizarCategoria;
 import com.junio.sistemafinanceiro.entidades.categoria.Categoria;
-import com.junio.sistemafinanceiro.service.CategoriaService;
+import com.junio.sistemafinanceiro.controllers.service.CategoriaService;
 import com.junio.sistemafinanceiro.entidades.categoria.DadosCadastroCategoria;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

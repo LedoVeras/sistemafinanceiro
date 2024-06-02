@@ -1,22 +1,20 @@
-package com.junio.sistemafinanceiro.service;
+package com.junio.sistemafinanceiro.controllers.service;
 
 import com.junio.sistemafinanceiro.entidades.lancamento.DadosAtualizarLancamento;
 import com.junio.sistemafinanceiro.entidades.lancamento.DadosCadastroLancamento;
 import com.junio.sistemafinanceiro.entidades.lancamento.Lancamento;
-import com.junio.sistemafinanceiro.entidades.pessoa.Pessoa;
 import com.junio.sistemafinanceiro.repositories.CategoriaRepository;
 import com.junio.sistemafinanceiro.repositories.LancamentoRepository;
 import com.junio.sistemafinanceiro.repositories.PessoaRepository;
-import com.junio.sistemafinanceiro.service.utils.Updater;
+import com.junio.sistemafinanceiro.controllers.service.utils.Updater;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 
-import static com.junio.sistemafinanceiro.service.Services.findObjectById;
-import static com.junio.sistemafinanceiro.service.Services.logicDelete;
+import static com.junio.sistemafinanceiro.controllers.service.Services.findObjectById;
+import static com.junio.sistemafinanceiro.controllers.service.Services.logicDelete;
 
 @Service
 @AllArgsConstructor

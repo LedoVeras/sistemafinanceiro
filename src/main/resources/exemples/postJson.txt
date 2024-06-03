@@ -1,0 +1,73 @@
+
+
+Pessoas
+
+{
+    "nome": "Maria da Silva",
+    "endereco": {
+        "logradouro": "Rua das Flores",
+        "bairro": "Jardim Botânico",
+        "cep": "54321-123",
+        "cidade": "Rio de Janeiro",
+        "uf": "RJ",
+        "complemento": "Casa 1",
+        "numero": "123"
+    }
+}
+
+{
+    "nome": "Jõao Pedro",
+    "endereco": {
+        "logradouro": "Rua das Coisas",
+        "bairro": "Test",
+        "cep": "11234-233",
+        "cidade": "São Paulo",
+        "uf": "SP",
+        "complemento": "Casa 21",
+        "numero": "10"
+    }
+}
+
+
+Categorias
+
+{
+    "nome":"livro"
+}
+
+{
+    "nome":"contas"
+}
+
+
+Lancamentos
+
+{
+   "descricao": "Compra de livros",
+   "observacao": "Livros de ficção",
+   "valor": 50.00,
+   "tipoLancamento": "DESPESA",
+   "idPessoa": 1,
+   "idCategoria": 1,
+   "transacaoConcluida": false
+}
+
+{
+   "descricao": "Compra de livros",
+   "observacao": "Livros de romance",
+   "valor": 25.00,
+   "tipoLancamento": "DESPESA",
+   "idPessoa": 2,
+   "idCategoria": 1,
+   "transacaoConcluida": false
+}
+
+{
+   "descricao": "Pagar conta ",
+   "observacao": "",
+   "valor": 250.00,
+   "tipoLancamento": "DESPESA",
+   "idPessoa": 2,
+   "idCategoria": 2,
+   "transacaoConcluida": true
+}

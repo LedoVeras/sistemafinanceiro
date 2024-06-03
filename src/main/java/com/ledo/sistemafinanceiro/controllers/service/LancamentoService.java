@@ -51,6 +51,14 @@ public class LancamentoService {
             lancamento.setDataPagamento(dados.transacaoConcluida() ? Instant.now() : null);
         }
 
+        if(dados.idCategoria() != null){
+            lancamento.setCategoria(Services.findObjectById(categoriaRepository, dados.idCategoria()));
+        }
+
+        if(dados.idPessoa() != null){
+            lancamento.setPessoa(Services.findObjectById(pessoaRepository, dados.idPessoa()));
+        }
+
         return lancamentoRepository.save(lancamento);
     }
 
